@@ -1,6 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
-test('login com sucesso', async ({ page }) => {
+// Este teste espera que o login seja bem-sucedido com credenciais válidas.
+test('credenciais válidas', async ({ page }) => {
   await page.goto('https://automationpratice.com.br/login');
   
   const loginButtonSelector = '#btnLogin';
@@ -13,6 +14,3 @@ test('login com sucesso', async ({ page }) => {
 
   await expect(page.locator('#swal2-title')).toBeVisible();
 });
-
-
-
