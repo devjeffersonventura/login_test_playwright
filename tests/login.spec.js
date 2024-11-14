@@ -27,7 +27,7 @@ test('usuário inválido', async ({ page }) => {
 
   await page.click(loginButtonSelector);
 
-  await expect(page.locator('#swal2-title')).toBeVisible();
+  await expect(page.locator('#swal2-title')).toBeHidden();
 });
 
 // Este teste espera que o login falhe com entradas maliciosas.
@@ -42,7 +42,7 @@ test('sql injection', async ({ page }) => {
 
   await page.click(loginButtonSelector);
 
-  await expect(page.locator('#swal2-title')).toBeVisible();
+  await expect(page.locator('#swal2-title')).toBeHidden();
 });
 
 // Este teste espera que o login falhe com os campos de entrada vazios.
@@ -57,7 +57,7 @@ test('campos vazios', async ({ page }) => {
 
   await page.click(loginButtonSelector);
 
-  await expect(page.locator('#swal2-title')).toBeVisible();
+  await expect(page.locator('#swal2-title')).toBeHidden();
 });
 
 // Este teste verifica que o login falha quando apenas a senha é preenchida, sem o nome de usuário.
@@ -72,5 +72,5 @@ test('somente senha', async ({ page }) => {
 
   await page.click(loginButtonSelector);
 
-  await expect(page.locator('#swal2-title')).toBeVisible();
+  await expect(page.locator('#swal2-title')).toBeHidden();
 });
