@@ -44,3 +44,18 @@ test('sql injection', async ({ page }) => {
 
   await expect(page.locator('#swal2-title')).toBeVisible();
 });
+
+// Este teste espera que o login falhe com os campos de entrada vazios.
+test('campos vazios', async ({ page }) => {
+  await page.goto('https://automationpratice.com.br/login');
+  
+  const loginButtonSelector = '#btnLogin';
+  await page.isVisible(loginButtonSelector);
+  
+  await page.fill('#user', '');
+  await page.fill('#password', '');
+
+  await page.click(loginButtonSelector);
+
+  await expect(page.locator('#swal2-title')).toBeVisible();
+});
