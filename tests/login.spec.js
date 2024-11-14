@@ -14,3 +14,18 @@ test('credenciais válidas', async ({ page }) => {
 
   await expect(page.locator('#swal2-title')).toBeVisible();
 });
+
+// Este teste espera que o login falhe com usuário inválido.
+test('usuário inválido', async ({ page }) => {
+  await page.goto('https://automationpratice.com.br/login');
+  
+  const loginButtonSelector = '#btnLogin';
+  await page.isVisible(loginButtonSelector);
+  
+  await page.fill('#user', 'AL#$!)@gmail.com');
+  await page.fill('#password', 'Alepds@1999');
+
+  await page.click(loginButtonSelector);
+
+  await expect(page.locator('#swal2-title')).toBeVisible();
+});
